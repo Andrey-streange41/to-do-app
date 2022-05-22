@@ -1,0 +1,70 @@
+.tableUI {
+  width: 100%;
+  min-height: 15vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+.tableUI .formButton {
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  min-width: 50%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3%;
+  min-height: 50px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableUI .removeButton {
+  background-color: #e91a6d;
+}
+
+.tableUI .addButton {
+  background-color: #79c029;
+}
+
+.tableUI .tableInputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 100%;
+  width: 100%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.tableUI .removeButton .tableInputs {
+  justify-content: flex-start;
+}
+
+.tableUI .updateButton {
+  background-color: #eaff00;
+}
+
+.tableUI .buttonsUISection {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.tableUI .deleteSection,
+.tableUI .uppdateSection,
+.tableUI .addSection {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid black 4px;
+  align-items: center;
+  width: calc(100% / 3 - 5%);
+  min-height: 180px;
+}
