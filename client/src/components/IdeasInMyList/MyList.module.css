@@ -24,13 +24,16 @@
 .container .content {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   width: 60%;
 }
 
 .container .content .arrowRight,
 .container .content .arrowLeft {
-  height: 88px;
-  width: 88px;
+  width: 6rem;
+  height: 6rem;
+  min-height: 6rem;
+  min-width: 6rem;
   cursor: pointer;
 }
 
