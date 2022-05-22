@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import cs from "../FocusItem/style.module.scss";
 
 export default class FocusItem extends Component {
+  
+  handleClick=(e)=>{
+    this.props.removeFromMyList(e.currentTarget.id, this.props.activity,this.props.type);
+}
+  
   render() {
     return (
-      <section
-        className={
-          `${cs.cardContainer} ${cs.educationBack}` 
-        }
-      >
+     <section id={this.props.id} onClick={this.handleClick} className={`${cs.cardContainer} ${cs.educationBack}`}>
         <p className={cs.describe}>{this.props.activity}</p>
         <section className={cs.myBorder}></section>
         <p className={cs.type}>

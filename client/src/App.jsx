@@ -5,14 +5,16 @@ import "../src/Styles/reset.css";
 import appStyles from "./Styles/App.module.scss";
 import Achivements from "./components/Achievements";
 import CompletedChalenges from "./components/CompletedChalenges";
-import { sendDataOnRemoteServer } from "./actions/sendDataOnRemoteServer.js";
+import { sendDataOnRemoteServer,addNewRowInTable } from "./actions/sendDataOnRemoteServer.js";
 import CloudMessage from "./components/CloudMessage";
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      isLoad:true,
       focusItem: 0,
       cardList: [],
       amountIdeas: 8,
@@ -33,6 +35,8 @@ class App extends React.Component {
     };
   }
 
+
+
   getData = async () => {
     const buffer = [];
     for (let i = 0; i < this.state.amountIdeas; i++) {
@@ -41,7 +45,7 @@ class App extends React.Component {
       ).json();
       buffer.push(element);
     }
-
+    
     this.setState((state) => {
       return { ...state, cardList: buffer };
     });
@@ -80,7 +84,28 @@ class App extends React.Component {
     this.setState((state) => {
       return { ...state, ideasList: buffer };
     });
+    
   };
+
+   sendTaskToDB = async(title,type,date) =>{
+     try {
+        const request = await addNewRowInTable(title,type,date).finally(()=>{
+          this.setState((s)=>{return{...s,isLoad:false}})
+        });
+        console.log(request);
+     } catch (error) {
+      console.log(error);
+     }
+    
+  }
+
+  removeFromMyList = (key,title,type) =>{
+       const newBuffer = this.state.ideasList.filter((item) => item.data.key !== key);
+       this.setState((s)=>{return{...s, ideasList: newBuffer}});
+       const currentDate = new Date();
+       const date = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`;
+       this.sendTaskToDB(title,type, date);
+  }
 
   dataChanges = (data) => {
     this.setState((state) => {
@@ -100,6 +125,7 @@ class App extends React.Component {
     });
     this.setState((s)=>{return{...s,cloudMessage:message,cloudColor:color}})
   };
+
 
   render() {
     if (this.state.cardList.length !== 0) {
@@ -125,6 +151,7 @@ class App extends React.Component {
             focusItem={this.state.focusItem}
             notifyParent={this.dataChanges}
             ideasList={this.state.ideasList}
+            removeFromMyList={this.removeFromMyList}
           />
 
           <Achivements

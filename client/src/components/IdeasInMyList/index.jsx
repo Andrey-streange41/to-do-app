@@ -7,11 +7,8 @@ import EmtyListAnimation from '../EmptyListAnimation/index';
 export default class IdeasInMyList extends Component {
   constructor(props) {
     super(props);
-    this.data = [];
-    this.data = this.props.ideasList;
     this.buffer = [];
     this.showTrio = [];
-
     this.state = {
       focusItem: this.props.focusItem,
       currentSlide: this.props.currentSlide,
@@ -41,12 +38,16 @@ export default class IdeasInMyList extends Component {
 
   render() {
     this.buffer = [];
-    if (this.data.length > 0) {
-      for (let i = 0; i < this.data.length; i++) {
+    if (this.props.ideasList.length > 0) {
+      
+      for (let i = 0; i < this.props.ideasList.length; i++) {
         const element = (
           <UnfocusItem
-          key={i}
-            activity={this.data[i].data[this.data[i].unKey].activity}
+            removeFromMyList={this.props.removeFromMyList}
+            id={this.props.ideasList[i].data.key }
+            key={Math.random().toString(36).substring(4,9)}
+            activity={this.props.ideasList[i].data.activity}
+            type={this.props.ideasList[i].data.type}
           />
         );
         this.buffer.push(element);
@@ -58,8 +59,12 @@ export default class IdeasInMyList extends Component {
         if (i - this.state.focusItem === 1) {
           const element = (
             <FocusItem
-              type={this.data[i].data[this.data[i].unKey].type}
-              activity={this.data[i].data[this.data[i].unKey].activity}
+              list={this.props.ideasList}
+              removeFromMyList={this.props.removeFromMyList}
+              id={this.props.ideasList[i].data.key}
+              key={Math.random().toString(36).substring(4,9)}
+              type={this.props.ideasList[i].data.type}
+              activity={this.props.ideasList[i].data.activity}
             />
           );
           this.showTrio.push(element);
@@ -68,8 +73,11 @@ export default class IdeasInMyList extends Component {
         if (this.buffer.length === 1) {
           const element = (
             <FocusItem
-              type={this.data[i].data[this.data[i].unKey].type}
-              activity={this.data[i].data[this.data[i].unKey].activity}
+              removeFromMyList={this.props.removeFromMyList}
+              id={this.props.ideasList[i].data.key}
+              key={Math.random().toString(36).substring(4,9)}
+              type={this.props.ideasList[i].data.type}
+              activity={this.props.ideasList[i].data.activity}
             />
           );
           this.showTrio.push(element);

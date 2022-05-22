@@ -23,6 +23,7 @@ export default class ChoseIdeas extends Component {
             data={this.props.cardList}
             key={i}
             uniqKey={i}
+            id={Math.random()}
           />
         );
       }

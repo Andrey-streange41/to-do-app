@@ -14,6 +14,7 @@ export default class IdeasCard extends Component {
     };
     this.stat = {};
     this.type = this.props.data[this.key].type;
+    this.title = this.props.data[this.key].activity;
   }
 
   handleClick = (e) => {
@@ -37,7 +38,7 @@ export default class IdeasCard extends Component {
       });
     }
     this.props.updateStats(this.stat);
-    this.props.addToMyList({ data: this.props.data, unKey: this.key });
+    this.props.addToMyList({ data: this.props.data[this.key], unKey: this.key });
   };
 
   render() {
