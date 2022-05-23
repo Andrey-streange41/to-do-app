@@ -5,16 +5,18 @@ import "../src/Styles/reset.css";
 import appStyles from "./Styles/App.module.scss";
 import Achivements from "./components/Achievements";
 import CompletedChalenges from "./components/CompletedChalenges";
-import { sendDataOnRemoteServer,addNewRowInTable } from "./actions/sendDataOnRemoteServer.js";
+import {
+  sendDataOnRemoteServer,
+  addNewRowInTable,
+} from "./actions/sendDataOnRemoteServer.js";
 import CloudMessage from "./components/CloudMessage";
-
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isLoad:true,
+      isLoad: true,
       focusItem: 0,
       cardList: [],
       amountIdeas: 8,
@@ -31,11 +33,9 @@ class App extends React.Component {
       cloudStatement: false,
       timerId: null,
       cloudMessage: "",
-      cloudColor: "greenyellow"
+      cloudColor: "greenyellow",
     };
   }
-
-
 
   getData = async () => {
     const buffer = [];
@@ -45,7 +45,7 @@ class App extends React.Component {
       ).json();
       buffer.push(element);
     }
-    
+
     this.setState((state) => {
       return { ...state, cardList: buffer };
     });
@@ -84,28 +84,33 @@ class App extends React.Component {
     this.setState((state) => {
       return { ...state, ideasList: buffer };
     });
-    
   };
 
-   sendTaskToDB = async(title,type,date) =>{
-     try {
-        const request = await addNewRowInTable(title,type,date).finally(()=>{
-          this.setState((s)=>{return{...s,isLoad:false}})
-        });
-        console.log(request);
-     } catch (error) {
+  sendTaskToDB = async (title, type, date) => {
+    try {
+      await addNewRowInTable(title, type, date);
+    } catch (error) {
       console.log(error);
-     }
-    
-  }
+    }
+  };
 
-  removeFromMyList = (key,title,type) =>{
-       const newBuffer = this.state.ideasList.filter((item) => item.data.key !== key);
-       this.setState((s)=>{return{...s, ideasList: newBuffer}});
-       const currentDate = new Date();
-       const date = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`;
-       this.sendTaskToDB(title,type, date);
-  }
+  removeFromMyList = (key, title, type) => {
+    const newBuffer = this.state.ideasList.filter(
+      (item) => item.data.key !== key
+    );
+    this.setState((s) => {
+      return { ...s, ideasList: newBuffer };
+    });
+    const currentDate = new Date();
+    const date = `${currentDate.getDate()}/${
+      currentDate.getMonth() + 1
+    }/${currentDate.getFullYear()}`;
+    this.sendTaskToDB(title, type, date);
+    this.setState((s) => {
+      return { ...s, isLoad: false };
+    });
+    console.log(this.state.isLoad);
+  };
 
   dataChanges = (data) => {
     this.setState((state) => {
@@ -119,20 +124,25 @@ class App extends React.Component {
     });
   };
 
-  activeCloud = (message,color) => {
+  activeCloud = (message, color) => {
     this.setState((s) => {
       return { ...s, cloudStatement: !this.state.cloudStatement };
     });
-    this.setState((s)=>{return{...s,cloudMessage:message,cloudColor:color}})
+    this.setState((s) => {
+      return { ...s, cloudMessage: message, cloudColor: color };
+    });
   };
-
 
   render() {
     if (this.state.cardList.length !== 0) {
       return (
         <div className={appStyles.app}>
           <h1> To Do Application </h1>
-          <CloudMessage cloudColor={this.state.cloudColor} message={this.state.cloudMessage} cloudStatement={this.state.cloudStatement} />
+          <CloudMessage
+            cloudColor={this.state.cloudColor}
+            message={this.state.cloudMessage}
+            cloudStatement={this.state.cloudStatement}
+          />
           <ChoseIdeas
             activeCloud={this.activeCloud}
             social={this.state.social}
@@ -152,6 +162,13 @@ class App extends React.Component {
             notifyParent={this.dataChanges}
             ideasList={this.state.ideasList}
             removeFromMyList={this.removeFromMyList}
+            
+            social={this.state.social}
+            education={this.state.education}
+            athers={this.state.athers}
+            relaxation={this.state.relaxation}
+            recreational={this.state.recreational}
+            typesUpdate={this.typesUpdate}
           />
 
           <Achivements
@@ -164,7 +181,11 @@ class App extends React.Component {
             ideasList={this.state.ideasList}
           />
 
-          <CompletedChalenges cloudActive={this.activeCloud}  notify={this.getData} table={this.state.table} />
+          <CompletedChalenges
+            cloudActive={this.activeCloud}
+            notify={this.getData}
+            table={this.state.table}
+          />
         </div>
       );
     }

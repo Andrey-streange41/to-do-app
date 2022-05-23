@@ -5,13 +5,6 @@ export default class IdeasCard extends Component {
   constructor(props) {
     super(props);
     this.key = this.props.uniqKey;
-    this.state = {
-      recreational: this.props.recreational,
-      social: this.props.social,
-      education: this.props.education,
-      athers: this.props.athers,
-      relaxation: this.props.relaxation,
-    };
     this.stat = {};
     this.type = this.props.data[this.key].type;
     this.title = this.props.data[this.key].activity;
@@ -20,11 +13,8 @@ export default class IdeasCard extends Component {
   handleClick = (e) => {
     e.currentTarget.className = `${cs.displayNone} `;
     const name = this.props.data[this.key].type;
-    this.props.activeCloud("task was added !","greenyellow");
+    this.props.activeCloud("task was added !", "greenyellow");
     this.stat[name] = this.props[name] + 1;
-    this.setState((state) => {
-      return { ...state, [name]: this.state.name + 1 };
-    });
 
     if (
       name !== "recreational" &&
@@ -33,12 +23,12 @@ export default class IdeasCard extends Component {
       name !== "education"
     ) {
       this.stat["athers"] = this.props.athers + 1;
-      this.setState((state) => {
-        return { ...state, athers: this.state.athers + 1 };
-      });
     }
     this.props.updateStats(this.stat);
-    this.props.addToMyList({ data: this.props.data[this.key], unKey: this.key });
+    this.props.addToMyList({
+      data: this.props.data[this.key],
+      unKey: this.key,
+    });
   };
 
   render() {

@@ -48,6 +48,13 @@ export default class IdeasInMyList extends Component {
             key={Math.random().toString(36).substring(4,9)}
             activity={this.props.ideasList[i].data.activity}
             type={this.props.ideasList[i].data.type}
+
+            social={this.props.social}
+            education={this.props.education}
+            athers={this.props.athers}
+            relaxation={this.props.relaxation}
+            recreational={this.props.recreational}
+            updateStats={this.props.typesUpdate}
           />
         );
         this.buffer.push(element);
@@ -65,6 +72,13 @@ export default class IdeasInMyList extends Component {
               key={Math.random().toString(36).substring(4,9)}
               type={this.props.ideasList[i].data.type}
               activity={this.props.ideasList[i].data.activity}
+              
+              social={this.props.social}
+              education={this.props.education}
+              athers={this.props.athers}
+              relaxation={this.props.relaxation}
+              recreational={this.props.recreational}
+              updateStats={this.props.typesUpdate}
             />
           );
           this.showTrio.push(element);
@@ -78,6 +92,13 @@ export default class IdeasInMyList extends Component {
               key={Math.random().toString(36).substring(4,9)}
               type={this.props.ideasList[i].data.type}
               activity={this.props.ideasList[i].data.activity}
+
+              social={this.props.social}
+              education={this.props.education}
+              athers={this.props.athers}
+              relaxation={this.props.relaxation}
+              recreational={this.props.recreational}
+              updateStats={this.props.typesUpdate}
             />
           );
           this.showTrio.push(element);
