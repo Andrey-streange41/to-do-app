@@ -16,7 +16,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      isLoad: true,
+      isLoad: false,
       focusItem: 0,
       cardList: [],
       amountIdeas: 8,
@@ -88,9 +88,18 @@ class App extends React.Component {
 
   sendTaskToDB = async (title, type, date) => {
     try {
-      await addNewRowInTable(title, type, date);
+      const res = await addNewRowInTable(title, type, date);
+      const dataFromDB = await sendDataOnRemoteServer();
+
+    this.setState((state) => {
+      return { ...state, table: dataFromDB ? dataFromDB : null };
+    });
+      
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      this.dataChanges();
     }
   };
 
@@ -106,16 +115,13 @@ class App extends React.Component {
       currentDate.getMonth() + 1
     }/${currentDate.getFullYear()}`;
     this.sendTaskToDB(title, type, date);
-    this.setState((s) => {
-      return { ...s, isLoad: false };
-    });
-    console.log(this.state.isLoad);
   };
 
   dataChanges = (data) => {
     this.setState((state) => {
       return { ...state, focusItem: data };
     });
+    console.log('ezzzzzz')
   };
 
   typesUpdate = (data) => {
@@ -162,7 +168,6 @@ class App extends React.Component {
             notifyParent={this.dataChanges}
             ideasList={this.state.ideasList}
             removeFromMyList={this.removeFromMyList}
-            
             social={this.state.social}
             education={this.state.education}
             athers={this.state.athers}
