@@ -1,219 +1,114 @@
+
+filter
+Query Results:
+ 1-10 of 10
+
     _id
-    :6285ebda4854597becd35ff2
+    :628ad45c17da683f69f2102f
     Title
-    :"Play computer game"
+    :"Organize your pantry"
     Type
-    :"relaxation"
+    :"busywork"
     When
-    :"today"
+    :"23/5/2022"
     __v
     :0
 
     _id
-    :6285ee0ddec0ef98107a9eea
+    :628ad48117da683f69f21034
     Title
-    :"Start a webinar on a topic of your choice"
+    :"Uninstall unused apps from your devices"
     Type
-    :"Education"
+    :"busywork"
     When
-    :"Last Tuesday"
+    :"23/5/2022"
     __v
     :0
 
     _id
-    :6285ee34f9445ace59584efd
+    :628ad55917da683f69f21039
     Title
-    :"Conquer one of your fears"
+    :"Go to a music festival with some friends"
     Type
-    :"Recreational"
+    :"social"
     When
-    :"Yesterday"
+    :"23/5/2022"
     __v
     :0
 
     _id
-    :62867d49b73a47aadd65f63a
+    :628ad68417da683f69f21042
     Title
-    :"Teach your dog a new trick"
+    :"Organize your basement"
     Type
-    :"Relaxation"
+    :"busywork"
     When
-    :"22 dec"
+    :"23/5/2022"
     __v
     :0
 
     _id
-    :62875a9a7fe8cb5dd6b4e3c5
+    :628ad68f17da683f69f21044
     Title
-    :"data"
+    :"Draft your living will"
     Type
-    :"data"
+    :"busywork"
     When
-    :"data"
+    :"23/5/2022"
     __v
     :0
 
     _id
-    :62875c437fe8cb5dd6b4e3d0
+    :628ad6bf17da683f69f2104c
     Title
-    :"Learn javascript "
+    :"Clean out your car"
+    Type
+    :"busywork"
+    When
+    :"23/5/2022"
+    __v
+    :0
+
+    _id
+    :628ad6dd17da683f69f2104f
+    Title
+    :"Look at your finances and find one way to save money"
+    Type
+    :"busywork"
+    When
+    :"23/5/2022"
+    __v
+    :0
+
+    _id
+    :628ad6ee17da683f69f21052
+    Title
+    :"Plant a tree"
+    Type
+    :"recreational"
+    When
+    :"23/5/2022"
+    __v
+    :0
+
+    _id
+    :628ad70f17da683f69f21056
+    Title
+    :"Study a foreign language"
     Type
     :"education"
     When
-    :"last week"
+    :"23/5/2022"
     __v
     :0
 
     _id
-    :62875de97fe8cb5dd6b4e3d6
+    :628ad77017da683f69f2105a
     Title
-    :"Learn how to make an Alexa skill"
+    :"Organize your music collection"
     Type
-    :"Education"
+    :"busywork"
     When
-    :"last Monday"
-    __v
-    :0
-
-    _id
-    :62875e227fe8cb5dd6b4e3d9
-    Title
-    :"Draw and color a Mandala"
-    Type
-    :" Relaxation 🪁"
-    When
-    :"last Monday"
-    __v
-    :0
-
-    _id
-    :62875e2a7fe8cb5dd6b4e3db
-    Title
-    :"Draw and color a Mandala"
-    Type
-    :" Relaxation 🪁"
-    When
-    :"last Monday"
-    __v
-    :0
-
-    _id
-    :62875e657fe8cb5dd6b4e3de
-    Title
-    :"Draw and color a Mandala"
-    Type
-    :" Relaxation"
-    When
-    :"last monday"
-    __v
-    :0
-
-    _id
-    :62875efe7fe8cb5dd6b4e3e7
-    Title
-    :"Make tie dye shirts"
-    Type
-    :"Diy"
-    When
-    :"Last Friday"
-    __v
-    :0
-
-    _id
-    :62875f387fe8cb5dd6b4e3ed
-    Title
-    :"Plant a tree"
-    Type
-    :"Recreational 🎭"
-    When
-    :"today"
-    __v
-    :0
-
-    _id
-    :62875f6c7fe8cb5dd6b4e3f2
-    Title
-    :"Plant a tree"
-    Type
-    :"Plant a tree"
-    When
-    :"Plant a tree"
-    __v
-    :0
-
-    _id
-    :62875fb07fe8cb5dd6b4e3f8
-    Title
-    :"Plant a tree"
-    Type
-    :"Plant a tree"
-    When
-    :"Plant a tree"
-    __v
-    :0
-
-    _id
-    :62875fd67fe8cb5dd6b4e3fc
-    Title
-    :"data"
-    Type
-    :"data"
-    When
-    :"data"
-    __v
-    :0
-
-    _id
-    :628760317fe8cb5dd6b4e402
-    Title
-    :"daata"
-    Type
-    :"Social"
-    When
-    :"last Monday"
-    __v
-    :0
-
-    _id
-    :628760947fe8cb5dd6b4e409
-    Title
-    :"1"
-    Type
-    :"1"
-    When
-    :"1"
-    __v
-    :0
-
-    _id
-    :62877408157215e235a12379
-    Title
-    :"education"
-    Type
-    :"data"
-    When
-    :"data"
-    __v
-    :0
-
-    _id
-    :6288d68bb01eea44adb481b4
-    Title
-    :"wfawf"
-    Type
-    :"awfawf"
-    When
-    :"wfafw"
-    __v
-    :0
-
-    _id
-    :6288da89b01eea44adb481b8
-    Title
-    :"yuguygyg"
-    Type
-    :"ujuinunuin"
-    When
-    :"hhuihu"
+    :"23/5/2022"
     __v
     :0
