@@ -29,8 +29,23 @@ export default class CompletedChalenges extends Component {
           when={"server error ..."}
         />
       );
-
       formatBuffer.push(<TableLoad />);
+
+      if (localStorage["items"] !== "undefined") {
+        const localSt = JSON.parse(localStorage["items"]);
+        for (let i = 0; i < localSt.length; i++) {
+          formatBuffer.push(
+            <TableRow
+              id={i}
+              key={i}
+              title={localSt[i].Title}
+              type={localSt[i].Type}
+              when={localSt[i].When}
+            />
+          );
+        }
+        console.log("Данные подгружены из локального хрнилища !");
+      }
     }
 
     return (
@@ -47,9 +62,7 @@ export default class CompletedChalenges extends Component {
           <section>{formatBuffer ? formatBuffer : null}</section>
         </div>
 
-        <h2>
-          table Interface
-        </h2>
+        <h2>table Interface</h2>
 
         <TableUI
           notify={this.props.notify}

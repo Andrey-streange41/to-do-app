@@ -1,6 +1,7 @@
 .loader {
   transform: translate(-50%, -50%) rotate(-90deg) scale(4);
   max-width: 100%;
+  width: 100%;
   margin: 0px;
 }
 

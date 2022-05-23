@@ -46,12 +46,16 @@ class App extends React.Component {
       buffer.push(element);
     }
 
+    
+
     this.setState((state) => {
       return { ...state, cardList: buffer };
     });
-
     const dataFromDB = await sendDataOnRemoteServer();
-
+    if(dataFromDB){
+       localStorage["items"] = JSON.stringify(dataFromDB);
+    }
+   
     this.setState((state) => {
       return { ...state, table: dataFromDB ? dataFromDB : null };
     });
